@@ -64,12 +64,12 @@ public class SchoolingFish : MonoBehaviour
         Vector3Int pos = movement.position;
 
         Direction forward_direction = movement.direction;
-        Direction left_direction = Math2.Rotate(movement.direction, Rotation.CCW);
-        Direction right_direction = Math2.Rotate(movement.direction, Rotation.CW);
+        Direction left_direction = Move.Rotate(movement.direction, Rotation.CCW);
+        Direction right_direction = Move.Rotate(movement.direction, Rotation.CW);
 
-        Vector3Int front = Math2.Unit(forward_direction);
-        Vector3Int left = Math2.Unit(left_direction);
-        Vector3Int right = Math2.Unit(right_direction);
+        Vector3Int front = Move.Unit(forward_direction);
+        Vector3Int left = Move.Unit(left_direction);
+        Vector3Int right = Move.Unit(right_direction);
 
         (Vector3Int, Direction)[] leader_positions = new (Vector3Int, Direction)[] {
                 (pos + front, forward_direction),
@@ -125,15 +125,15 @@ public class SchoolingFish : MonoBehaviour
                 // Copy leader's list of moves
                 (moves, move_index) = leader.GetMoves();
             }
-            else if (leader.movement.direction == Math2.Rotate(movement.direction, Rotation.R180))
+            else if (leader.movement.direction == Move.Rotate(movement.direction, Rotation.R180))
             {
                 // Rotate away from leader
-                movement.SetMove(RotationToMove(Math2.RotationTowards(movement.direction, Math2.Rotate(leader_direction, Rotation.R180))));
+                movement.SetMove(RotationToMove(Move.RotationTowards(movement.direction, Move.Rotate(leader_direction, Rotation.R180))));
             }
             else
             {
                 // Rotate towards leader
-                movement.SetMove(RotationToMove(Math2.RotationTowards(movement.direction, leader.movement.direction)));
+                movement.SetMove(RotationToMove(Move.RotationTowards(movement.direction, leader.movement.direction)));
 
 
                 // Copy leader's list of moves

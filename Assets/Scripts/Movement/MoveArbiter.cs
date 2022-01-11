@@ -100,14 +100,12 @@ public class MoveArbiter : MonoBehaviour
                         || mover1.next_position == mover2.next_position)
                     {
                         // There is a move conflict. Undo moves and handle conflicts.
-                        // Note that some characters can overlap, in which case MoveConflict will do nothing.
+                        // Note that enemies can overlap, in which case MoveConflict will do nothing.
                         if (mover1.MoveConflict != null && mover1.next_position != mover1.position)
                         {
                             try
                             {
                                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                                //was_conflict = true;
-                                //mover1.MoveConflict(mover2.gameObject);
                             }
                             catch
                             {
@@ -120,8 +118,6 @@ public class MoveArbiter : MonoBehaviour
                             try
                             {
                                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                                //was_conflict = true;
-                                //mover2.MoveConflict(mover1.gameObject);
                             }
                             catch
                             {

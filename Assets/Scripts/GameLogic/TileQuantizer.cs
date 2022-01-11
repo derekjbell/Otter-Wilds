@@ -35,7 +35,7 @@ public class TileQuantizer : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.Lerp(last_position, target_position, (float)(Time.timeAsDouble - move_start_time) / animation_time);
-        transform.rotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Lerp(last_rotation, last_rotation + Math2.SignedRemainder(target_rotation - last_rotation, 360.0f), (float)(Time.timeAsDouble - move_start_time) / animation_time));
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, Mathf.Lerp(last_rotation, last_rotation + Move.SignedRemainder(target_rotation - last_rotation, 360.0f), (float)(Time.timeAsDouble - move_start_time) / animation_time));
     }
 
     static float DirectionToDegrees(Direction direction)

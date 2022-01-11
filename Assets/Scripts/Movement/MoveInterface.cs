@@ -8,20 +8,16 @@ public class MoveInterface : MonoBehaviour
     MoveArbiter arbiter;
     Grid grid;
     TileQuantizer quantizer;
-
     Tile item_tile = null;
     GameObject item_object = null;
-
+    
     [SerializeField]
     MoveType wall_move = MoveType.Wait;
-
     public Vector3Int position = new Vector3Int();
     public Direction direction;
-
     MoveType next_move;
     public Vector3Int next_position;
     public Direction next_direction;
-
     public delegate void MoveConflictHandler(GameObject other);
     public MoveConflictHandler MoveConflict;
 
@@ -62,32 +58,32 @@ public class MoveInterface : MonoBehaviour
                 next_direction = direction;
                 break;
             case MoveType.Forward:
-                next_position = position + Math2.Unit(direction);
+                next_position = position + Move.Unit(direction);
                 next_direction = direction;
                 break;
             case MoveType.Backward:
-                next_position = position - Math2.Unit(direction);
+                next_position = position - Move.Unit(direction);
                 next_direction = direction;
                 break;
             case MoveType.Left:
-                next_position = position + Math2.Unit(Math2.Rotate(direction, Rotation.CCW));
+                next_position = position + Move.Unit(Move.Rotate(direction, Rotation.CCW));
                 next_direction = direction;
                 break;
             case MoveType.Right:
-                next_position = position + Math2.Unit(Math2.Rotate(direction, Rotation.CW));
+                next_position = position + Move.Unit(Move.Rotate(direction, Rotation.CW));
                 next_direction = direction;
                 break;
             case MoveType.Rotate180:
                 next_position = position;
-                next_direction = Math2.Rotate(direction, Rotation.R180);
+                next_direction = Move.Rotate(direction, Rotation.R180);
                 break;
             case MoveType.Rotate90CW:
                 next_position = position;
-                next_direction = Math2.Rotate(direction, Rotation.CW);
+                next_direction = Move.Rotate(direction, Rotation.CW);
                 break;
             case MoveType.Rotate90CCW:
                 next_position = position;
-                next_direction = Math2.Rotate(direction, Rotation.CCW);
+                next_direction = Move.Rotate(direction, Rotation.CCW);
                 break;
         }
     }

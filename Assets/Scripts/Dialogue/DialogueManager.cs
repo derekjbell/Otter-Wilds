@@ -10,11 +10,6 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
     private Queue<string> sentences = new Queue<string>();
 
-    // private void Awake()
-    // {
-    //     sentences = new Queue<string>();
-    // }
-
     public void StartDialogue(Dialogue dialogue)
     {
 

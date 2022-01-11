@@ -18,7 +18,7 @@ public enum Rotation
     CW = 3
 }
 
-public class Math2
+public class Move
 {
     public static Direction Rotate(Direction dir, Rotation r)
     {

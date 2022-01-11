@@ -8,20 +8,15 @@ using System;
 public class BasicEnemy : MonoBehaviour
 {
     Tilemap bugmap;
-
     MoveInterface movement;
-
     MoveArbiter arbiter;
-
     int step_index = 0;
     public GameObject enemy;
-
     public GameObject thought_bubble;
     SpriteRenderer next_move_sprite;
 
     [SerializeField]
     List<MoveType> move_steps = new List<MoveType>();
-
     EnemyHitboxDetection enemy_hitbox_script;
 
     private void Awake()

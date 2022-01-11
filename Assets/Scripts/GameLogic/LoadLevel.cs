@@ -8,7 +8,6 @@ public class LoadLevel : MonoBehaviour
 
     SceneTransition scene;
     public string LevelToLoad;
-
     public string level_completed;
 
     void Start()

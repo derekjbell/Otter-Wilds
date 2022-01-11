@@ -6,10 +6,8 @@ using UnityEngine.Tilemaps;
 public class Player : MonoBehaviour
 {
     Tilemap bugmap;
-
     MoveInterface movement;
     MoveArbiter arbiter;
-
     bool key_down = false;
 
     void Start()

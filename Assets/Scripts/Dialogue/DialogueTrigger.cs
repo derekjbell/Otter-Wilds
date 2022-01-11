@@ -7,8 +7,6 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogue;
     public string level_to_show_dialogue;
 
-    //bool level_2_started = false;
-
     public void Awake()
     {
         if (PlayerPrefs.GetInt("level1") == 0 && level_to_show_dialogue == "EntranceHub1")
